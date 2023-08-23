@@ -1,0 +1,53 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box1 {
+    display: block;
+    float:left; 
+    width:20%;
+    border:solid black;
+    background: olivedrab;
+    height: 100vh;
+    position: fixed;
+  }
+  .sidebar-item{
+    display: flex;
+    justify-content:space-etween  ;
+    align-items: center;
+    padding: 7px 0px 7px 0px;
+   
+}
+
+  .box2 {
+   
+   
+    width:100vw;
+    
+   
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+height: 100vh;
+    background: palegreen;
+    border:solid black;
+  }
+.main-menu{
+  width: 79vw;
+  height: 40vh;
+  background: palevioletred;
+}
+.nav{
+  background:paleturquoise;
+  height: 10vh;
+}
+.side-nav{
+  width: 20vw;
+  height: auto;
+  background: palevioletred;
+
+}
+  
+ 
