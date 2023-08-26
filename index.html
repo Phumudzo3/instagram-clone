@@ -4,199 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
+    
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="shortcut icon" href="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="left-sidebar box1">
-    <span class="logo"><img src="https://www.vectorlogo.zone/logos/instagram/instagram-wordmark.svg" width="100px" height="50px"></span>
-    <div class="left-nav">
+    <div id="firebaseui-auth-container">
 
-       
-        <div class="sidebar-item active">
-            
-            <span class="material-icons  ">
-               home
-               </span> 
-           <span class="ul-p1">Home</span>
-       </div>
-       <div class="sidebar-item">
-           <span class="material-icons ">
-               search
-               </span> <span class="ul-p1">Search</span>
-       
-       </div>
-       <div class="sidebar-item">
-           <span class="material-icons ">
-               explore
-               </span>
-           <span class="ul-p1">Explore</span>
-           
-       </div>
-       <div class="sidebar-item"><span class="material-icons ">
-        movie
-         </span>
-     <span class="ul-p1">Reel</span>
-     </div>
-     <div class="sidebar-item">
-        <span class=" material-icons rotate-item">
-       send
-         </span>
-     <span class="ul-p1">Messages</span>
-     </div>
-       <div class="sidebar-item">
-        <span class="material-icons">
-            favorite_border
-            </span>
-           <span class="ul-p1">
-              notifications
-           </span>
-           </div>
-       <div class="sidebar-item"><span class="material-icons ">
-          add_box
-           </span>
-       <span class="ul-p1">Create</span>
-       </div>
-       <div class="sidebar-item"><span class="material-icons ">
-        account_circle
-        </span>
-    <span class="ul-p1">Profile</span>
     </div>
-   
-    <div class="sidebar-item menu"><span class="material-icons ">
-        menu
-        </span>
-    <span class="ul-p1">More</span>
-    </div>
-       
-       
-    </div>
-    </div>
-
-
-<div class="main-menu box2">
-    <div class="nav">
-        <div class="box2-profile">
-            
-            <span ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-           
-        <span class="ul-p1">Mash</span>
-        </div>
-        <div class="box2-profile">
-            
-            <span ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-           
-        <span class="ul-p1">Phumudzo</span>
-        </div>
-        <div class="box2-profile">
-            
-            <span  ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-        <span class="ul-p1">Livhuwani</span>
-        </div>
-        <div class="box2-profile">
-            
-            <span ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-           
-        <span class="ul-p1">Rendani</span>
-        </div>
-        <div class="box2-profile">
-            
-            <span ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-           
-        <span class="ul-p1">Tendani</span>
-        </div>
-        <div class="box2-profile">
-            
-            <span ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-           
-        <span class="ul-p1">Mavhungu</span>
-        </div>
-        <div class="box2-profile">
-            
-            <span ><img src="x.jpg" width="55" height="55"></span>
-           
-        <span class="ul-p1">Ompha</span>
-        </div>
-        <div class="box2-profile">
-            
-            <span ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-           
-        <span class="ul-p1">Lufuno</span>
-        </div>
+    <div id="app">
+        <div class="modal">
+            <div class="modal-content">
+                <div class="Creat-post">
+                    <span class="material-icons close-model">
+                        close
+                        </span>
+<div class="add-media">
+    <span class="post">Create new post</span>
+<hr>
+    <span class="material-icons media-id">
+        collections
+    </span>
+        <span class="media-id first-font">Drag photos and videos here</span>
+      <span class="media-id"><input type="file" id="files" multiple/></span> 
+      <span class="media-id"><button id="send">Upload</button></span>
         
-
-    </div>
-    <div class="status">
-        <div class="status-bar">
-            <div class="status-bar1">
-                <span ><img src="pexels-yiğit-melih-berber-14805059.jpg" width="40" height="40"></span>
-                    <span>TshivhulaPhumudzo . 19h</span>
-                    
-            </div>
-            <div class="status-bar2-2">
-                <span class="material-icons">
-                    more_horiz
-                    </span>
-            </div>
-           
-                </div>
-                <div class="photo">
-                    <img src="pexels-erik-mclean-9661427.jpg" width="410px" height="500px">
-                </div>
-                <div class="status-footer">
-                    <div class="status-footer-1">
-                        <span class="material-icons">
-                            favorite_border
-                            </span>
-                            <span class="material-icons">
-                                mode_comment
-                                </span>
-                                <span class="material-icons">
-                                    favorite_border
-                                    </span>
-                            
-                    </div>
-                    <div class="status-footer-2">
-                        <span class="material-icons">
-                            bookmark
-                            </span>
-                            
-                            
-                    </div>
-                    
-
-                </div>
-                <div class="comment-section">
-                    <div class="rnav-bar1">
-                        <span ><img src="x.jpg" width="15" height="15"></span>
-                            <div class="profile-name">
-                                <span class="likes-comment">Liked by Shaun_ and others</span>
-                            </div>
-                            </div>
-<span class="likes-comment status-com"><b>TshivhulaPhumudzo</b> Love </span>
-
-<div class="add-comment">
-    <span class="likes-comment">Add a comment...</span>
-    <span class="material-icons">
-        sentiment_satisfied_alt
-        </span>
+       <span class="media-id"><p id="uploading"></p></span> 
+        <progress value="0" max="100" id="progress"></progress>
 </div>
 
                 </div>
-                <br>
-<hr>
-
-                </div>
+            </div>
+        </div>
+        <div class="left-sidebar box1">
+            <span class="logo"><img src="https://www.vectorlogo.zone/logos/instagram/instagram-wordmark.svg" width="100px" height="50px"></span>
+            <div class="left-nav">
+        
+               
+                <div class="sidebar-item active">
+                    
+                    <span class="material-icons  ">
+                       home
+                       </span> 
+                   <span class="ul-p1">Home</span>
+               </div>
+               <div class="sidebar-item">
+                   <span class="material-icons ">
+                       search
+                       </span> <span class="ul-p1">Search</span>
+               
+               </div>
+               <div class="sidebar-item">
+                   <span class="material-icons ">
+                       explore
+                       </span>
+                   <span class="ul-p1">Explore</span>
+                   
+               </div>
+               <div class="sidebar-item"><span class="material-icons ">
+                movie
+                 </span>
+             <span class="ul-p1">Reel</span>
+             </div>
+             <div class="sidebar-item">
+                <span class=" material-icons rotate-item">
+               send
+                 </span>
+             <span class="ul-p1">Messages</span>
+             </div>
+               <div class="sidebar-item">
+                <span class="material-icons">
+                    favorite_border
+                    </span>
+                   <span class="ul-p1">
+                      notifications
+                   </span>
+                   </div>
+               <div class="sidebar-item open-modal"><span class="material-icons ">
+                  add_box
+                   </span>
+               <span class="ul-p1 open-modal">Create</span>
+               </div>
+               <div class="sidebar-item"><span class="material-icons pro-pic ">
+                <img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="30" height="30"></span>
                 
-                <br><br><br>
-
+            <span class="ul-p1">Profile</span>
+            </div>
+           
+            <div class="sidebar-item menu clickedMenu  " ><span class="material-icons ">
+                menu
+                </span>
+            <span class="ul-p1">More</span>
+            </div>
+               <div class="profile-menu main-form" id="myForm" main-form> 
+                <div class="sidebar-item main-form "><span class="material-icons">
+                    settings
+                    </span>
+                <span class="ul-p1">settings</span>
+                </div>
+                <div class="sidebar-item main-form"><span class="material-icons">
+                    av_timer
+                    </span>
+                <span class="ul-p1">Your activity</span>
+                </div>
+                <div class="sidebar-item main-form"><span class="material-icons ">
+                    bookmarks
+                    </span>
+                <span class="ul-p1">Saved</span>
+                </div>
+                <div class="sidebar-item main-form"><span class="material-icons">
+                    keyboard_command_key
+                    </span>
+                <span class="ul-p1">Keyboard shortcuts</span>
+                </div>
+                <div class="sidebar-item main-form"><span class="material-icons">
+                    light_mode
+                    </span>
+                <span class="ul-p1">Switch apperance</span>
+                </div>
+                <div class="sidebar-item main-form"><span class="material-icons">
+                    report
+                    </span>
+                <span class="ul-p1">Report a problem</span>
+                </div>
+                <div class="sidebar-item main-form account-bar"> <span class="ul-p1">Switch accounts</span>
+               
+                </div>
+                <div class="sidebar-item main-form  account-bar  "><span class="align-logout ">Log out</span>
+                </span><p class="ul-p1 "></p>
+                
+                </div>
+                <div class="sidebar-item logout-btn clickLogOut "><span class="material-icons ">
+                    menu
+                    </span> 
+                <span class="ul-p1 ">More</span>
+                </div>
+                </div>
+               </div>
+               
+            </div>
+            
+        <div class="section">
+            <div class="main-menu box2">
+                <div class="nav">
+                    <div class="box2-profile">
+                        
+                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                       
+                    <span class="ul-p1">Mash</span>
+                    </div>
+                    <div class="box2-profile">
+                        
+                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                       
+                    <span class="ul-p1">Phumudzo</span>
+                    </div>
+                    <div class="box2-profile">
+                        
+                        <span  ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                    <span class="ul-p1">Livhuwani</span>
+                    </div>
+                    <div class="box2-profile">
+                        
+                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                       
+                    <span class="ul-p1">Rendani</span>
+                    </div>
+                    <div class="box2-profile">
+                        
+                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                       
+                    <span class="ul-p1">Tendani</span>
+                    </div>
+                    <div class="box2-profile">
+                        
+                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                       
+                    <span class="ul-p1">Mavhungu</span>
+                    </div>
+                    <div class="box2-profile">
+                        
+                        <span ><img src="asset/x.jpg" width="55" height="55"></span>
+                       
+                    <span class="ul-p1">Ompha</span>
+                    </div>
+                    <div class="box2-profile">
+                        
+                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                       
+                    <span class="ul-p1">Lufuno</span>
+                    </div>
+                    
+            
+                </div>
                 <div class="status">
                     <div class="status-bar">
                         <div class="status-bar1">
-                            <span ><img src="pexels-marta-dzedyshko-2377470.jpg" width="40" height="40"></span>
-                                <span>BlueMash . 30h</span>
+                            <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="40" height="40"></span>
+                                <span>TshivhulaPhumudzo . 19h</span>
                                 
                         </div>
                         <div class="status-bar2-2">
@@ -207,7 +216,7 @@
                        
                             </div>
                             <div class="photo">
-                                <img src="pexels-marta-dzedyshko-2377470.jpg" width="410px" height="500px">
+                                <img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">
                             </div>
                             <div class="status-footer">
                                 <div class="status-footer-1">
@@ -234,12 +243,12 @@
                             </div>
                             <div class="comment-section">
                                 <div class="rnav-bar1">
-                                    <span ><img src="x.jpg" width="15" height="15"></span>
+                                    <span ><img src="asset/x.jpg" width="15" height="15"></span>
                                         <div class="profile-name">
                                             <span class="likes-comment">Liked by Shaun_ and others</span>
                                         </div>
                                         </div>
-            <span class="likes-comment status-com"><b>BlueMash</b> #flowers #nature #me </span>
+            <span class="likes-comment status-com"><b>TshivhulaPhumudzo</b> Love </span>
             
             <div class="add-comment">
                 <span class="likes-comment">Add a comment...</span>
@@ -250,129 +259,355 @@
             
                             </div>
                             <br>
-<hr>
+            <hr>
+            
                             </div>
+                            
+                            <br><br><br>
+            
+                            <div class="status">
+                                <div class="status-bar">
+                                    <div class="status-bar1">
+                                        <span ><img src="asset/pexels-marta-dzedyshko-2377470.jpg" width="40" height="40"></span>
+                                            <span>BlueMash . 30h</span>
+                                            
+                                    </div>
+                                    <div class="status-bar2-2">
+                                        <span class="material-icons">
+                                            more_horiz
+                                            </span>
+                                    </div>
+                                   
+                                        </div>
+                                        <div class="photo">
+                                            <img src="asset/pexels-marta-dzedyshko-2377470.jpg" width="410px" height="500px">
+                                        </div>
+                                        <div class="status-footer">
+                                            <div class="status-footer-1">
+                                                <span class="material-icons">
+                                                    favorite_border
+                                                    </span>
+                                                    <span class="material-icons">
+                                                        mode_comment
+                                                        </span>
+                                                        <span class="material-icons">
+                                                            favorite_border
+                                                            </span>
+                                                    
+                                            </div>
+                                            <div class="status-footer-2">
+                                                <span class="material-icons">
+                                                    bookmark
+                                                    </span>
+                                                    
+                                                    
+                                            </div>
+                                            
+                        
+                                        </div>
+                                        <div class="comment-section">
+                                            <div class="rnav-bar1">
+                                                <span ><img src="asset/x.jpg" width="15" height="15"></span>
+                                                    <div class="profile-name">
+                                                        <span class="likes-comment">Liked by Shaun_ and others</span>
+                                                    </div>
+                                                    </div>
+                        <span class="likes-comment status-com"><b>BlueMash</b> #flowers #nature #me </span>
+                        
+                        <div class="add-comment">
+                            <span class="likes-comment">Add a comment...</span>
+                            <span class="material-icons">
+                                sentiment_satisfied_alt
+                                </span>
+                        </div>
+                        
+                                        </div>
+                                        <br>
+            <hr>
+                                        </div>
+                        
+                        
             
             
-
-
-
-
+            
+            
+                           
+                </div>
+                
+            
+            <div class="right-nav box3">
+                <div class="status-bar-rnav p1">
                
+                    <div class="rnav-bar1">
+                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                            <div class="profile-name">
+                                <span>username:</span>
+                                <span class="auth-user"></span>
+                            </div>
+                            </div>
+                    <div class="status-bar2">
+                      <p class="logout">Log out</p>
+                    </div>
+                 </div>
+            
+            <br><br>
+                 <div class="status-bar-rnav">
+                    <div class="rnav-bar1-r1">
+                        <p>Suggested for you</p>
+                            </div>
+                    <div class="status-bar2">
+                      <h5>See All</h5>
+                    </div>
+                 </div>
+            
+                 <div class="status-bar-rnavrnav-bar1-r1">
+                    <div class="rnav-bar1">
+                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                            <div class="profile-name">
+                                <span>Blue</span>
+                                <span class="text-suggested">New to Instagram</span>
+                            </div>
+                            </div>
+                    <div class="status-bar2">
+                        <p>Follow</p>
+                    </div>
+                 </div>
+                 <div class="status-bar-rnavrnav-bar1-r1">
+                    <div class="rnav-bar1">
+                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                            <div class="profile-name">
+                                <span>John_Sky</span>
+                                <span class="text-suggested">Suggested for you</span>
+                            </div>
+                            </div>
+                    <div class="status-bar2">
+                        <p>Follow</p>
+                    </div>
+                 </div>
+                 <div class="status-bar-rnavrnav-bar1-r1">
+                    <div class="rnav-bar1">
+                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                            <div class="profile-name">
+                                <span>Fortune_king</span>
+                                <span>New to Instagram</span>
+                            </div>
+                            </div>
+                    <div class="status-bar2">
+                        <p>Follow</p>
+                    </div>
+                 </div>
+                 <div class="status-bar-rnavrnav-bar1-r1">
+                    <div class="rnav-bar1">
+                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                            <div class="profile-name">
+                                <span>Grey_hoper</span>
+                                <span class="text-suggested">Followed by Mash + 2...</span>
+                            </div>
+                            </div>
+                    <div class="status-bar2">
+                        <p>Follow</p>
+                    </div>
+                 </div>
+                 <div class="status-bar-rnavrnav-bar1-r1">
+                    <div class="rnav-bar1">
+                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                            <div class="profile-name">
+                                <span>BlackJ</span>
+                                <span class="text-suggested">Suggested for you</span>
+                            </div>
+                            </div>
+                    <div class="status-bar2">
+                      <p>Follow</p>
+                    </div>
+                 </div>
+            <div class="footer">
+                <div class="div">
+                    <ul>
+                        <span> About</span>
+                        <span>. Help</span>
+                        <span>. Press</span>
+                        <span>. API</span>
+                        <span>. Jobs</span>
+                        <span>. Privacy</span>
+                        <span>. Terms</span>
+                        <span>. Locations</span>
+                        <span>. Language</span>
+                        <span>. Meta Verified</span>
+                </ul>
+                </div>
+               
+            <p>INSTAGRAM clone </p>
+            </div>
+            
+            
+            </div>
+        </div>
     </div>
-    
-</div>
-<div class="right-nav box3">
-    <div class="status-bar-rnav p1">
-        <div class="rnav-bar1">
-            <span ><img src="x.jpg" width="40" height="40"></span>
-                <div class="profile-name">
-                    <span>P.three</span>
-                    <span>Tshivhula Phumudzo</span>
-                </div>
-                </div>
-        <div class="status-bar2">
-          <p>Switch</p>
-        </div>
-     </div>
 
-<br><br>
-     <div class="status-bar-rnav">
-        <div class="rnav-bar1-r1">
-            <p>Suggested for you</p>
-                </div>
-        <div class="status-bar2">
-          <h5>See All</h5>
-        </div>
-     </div>
 
-     <div class="status-bar-rnavrnav-bar1-r1">
-        <div class="rnav-bar1">
-            <span ><img src="x.jpg" width="40" height="40"></span>
-                <div class="profile-name">
-                    <span>Blue</span>
-                    <span class="text-suggested">New to Instagram</span>
-                </div>
-                </div>
-        <div class="status-bar2">
-            <p>Follow</p>
-        </div>
-     </div>
-     <div class="status-bar-rnavrnav-bar1-r1">
-        <div class="rnav-bar1">
-            <span ><img src="x.jpg" width="40" height="40"></span>
-                <div class="profile-name">
-                    <span>John_Sky</span>
-                    <span class="text-suggested">Suggested for you</span>
-                </div>
-                </div>
-        <div class="status-bar2">
-            <p>Follow</p>
-        </div>
-     </div>
-     <div class="status-bar-rnavrnav-bar1-r1">
-        <div class="rnav-bar1">
-            <span ><img src="x.jpg" width="40" height="40"></span>
-                <div class="profile-name">
-                    <span>Fortune_king</span>
-                    <span>New to Instagram</span>
-                </div>
-                </div>
-        <div class="status-bar2">
-            <p>Follow</p>
-        </div>
-     </div>
-     <div class="status-bar-rnavrnav-bar1-r1">
-        <div class="rnav-bar1">
-            <span ><img src="x.jpg" width="40" height="40"></span>
-                <div class="profile-name">
-                    <span>Grey_hoper</span>
-                    <span class="text-suggested">Followed by Mash + 2...</span>
-                </div>
-                </div>
-        <div class="status-bar2">
-            <p>Follow</p>
-        </div>
-     </div>
-     <div class="status-bar-rnavrnav-bar1-r1">
-        <div class="rnav-bar1">
-            <span ><img src="x.jpg" width="40" height="40"></span>
-                <div class="profile-name">
-                    <span>BlackJ</span>
-                    <span class="text-suggested">Suggested for you</span>
-                </div>
-                </div>
-        <div class="status-bar2">
-          <p>Follow</p>
-        </div>
-     </div>
-<div class="footer">
-    <div class="div">
-        <ul>
-            <span> About</span>
-            <span>. Help</span>
-            <span>. Press</span>
-            <span>. API</span>
-            <span>. Jobs</span>
-            <span>. Privacy</span>
-            <span>. Terms</span>
-            <span>. Locations</span>
-            <span>. Language</span>
-            <span>. Meta Verified</span>
-    </ul>
-    </div>
+<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+ <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+ <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script type="module">
    
-<p>INSTAGRAM clone </p>
-</div>
-
-
-</div>
-
   
-        
- 
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCQKhWk-P66NEiwI6_pvqU6FEhxjWPH7CE",
+      authDomain: "instagram-clone-e08f4.firebaseapp.com",
+      projectId: "instagram-clone-e08f4",
+      storageBucket: "instagram-clone-e08f4.appspot.com",
+      messagingSenderId: "1025129653151",
+      appId: "1:1025129653151:web:7e5cb4f73eb3da0136d3aa",
+      measurementId: "G-Q37P6QW7DX"
+    };
+  
+    // Initialize Firebase
+ // Initialize Firebase
+ firebase.initializeApp(firebaseConfig); 
+ const auth= firebase.auth();
+ console.log(auth);
+// Initialize Cloud Firestore and get a reference to the service
+const db = firebase.firestore();
+ console.log(db);   
+ const storage = getStorage();
+ console.log(storage);
+// Points to the root reference
 
+
+
+ 
+class Profile{
+    constructor(){
+this.$form=document.getElementById("myForm");
+this.$clickedMenu = document.querySelector(".clickedMenu");
+this.$clickLogout = document.querySelector(".clickLogOut");
+this.$modal = document.querySelector(".modal");
+    this.$modalForm=document.querySelector(".modal-form");
+    this.$createPost=document.querySelector(".open-modal");
+this.$app =document.querySelector("#app");
+this.$closeModal=document.querySelector(".close-model");
+this.$app.style.display="none";
+var files=[];
+this.$uploadFile=document.getElementById("send")
+this.$getFile=document.getElementById("files")
+this.ui = new firebaseui.auth.AuthUI(auth);
+this.$logOutButton =document.querySelector(".logout");
+this.$authUserText=document.querySelector(".auth-user");
+     this.$firebaseAuthContainer=document.querySelector("#firebaseui-auth-container");
+     this.userId="";
+     this.handleAuth();
+     this.addEventListeners();
+    }
+    
+    addEventListeners(){
+    
+        this.$clickedMenu.addEventListener("click",(event) =>{
+            console.log("yes clieckd")
+          this.openForm() ;
+        });
+        this.$clickLogout.addEventListener("click",(event) =>{
+            console.log("logout")
+            this.closeForm() ;
+        });
+        this.$logOutButton.addEventListener("click",(event) =>{
+        this.handleLogOut();
+    });
+    this.$createPost.addEventListener("click",(event) =>{
+        this.openCreatPost();
+        console.log("create post")
+    });
+    this.$closeModal.addEventListener("click",(event) =>{
+        this.closeModal();
+        console.log("close modal")
+    });
+
+    }
+     openForm() {
+        this.$form.style.visibility = "visible";
+        this.$clickedMenu.style.visibility = "hidden";
+      }
+      
+      closeForm() {
+        this.$form.style.visibility= "hidden";
+        this.$clickedMenu.style.visibility = "visible";
+      }
+
+openCreatPost(){
+    this.$modal.style.visibility= "visible";
+}
+closeModal(){
+    this.$modal.style.visibility= "hidden";  
+}
+
+      handleLogOut(){
+        firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+        this.redictTOAuth();
+    }).catch((error) => {
+      console.log("error accrred",error);
+    });
+    }
+    handleAuth(){
+        firebase.auth().onAuthStateChanged((user) => {
+            
+            if (user) {
+    
+              console.log(user);
+              this.userId=user;
+              this.$authUserText.innerHTML=user.displayName;
+             this.redirectToApp();
+           } else {
+            this.redictTOAuth();
+        }
+         });
+    }
     
     
+    redictTOAuth(){
+     
+        this.$firebaseAuthContainer.style.display="block";
+      this.$app.style.display="none";
+       this.ui.start('#firebaseui-auth-container', {
+        callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+         // this.userId=authResult.user;
+         console.log("authResult",authResult.user);
+         this.userId=authResult.user;
+              this.$authUserText.innerHTML=user.displayName;
+             this.redirectToApp();
+         
+          return true;
+        }
+        },
+            signInOptions: [
+             firebase.auth.EmailAuthProvider.PROVIDER_ID,
+             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            ],
+              // Other config options...
+         });
+    }
+    redirectToApp(){
+       this.$firebaseAuthContainer.style.display="none";
+       this.$app.style.display="block";
+   
+    }
+    
+
+
+
+
+
+
+
+}
+const profile=new Profile() ;
+  </script>
+  <script src=""></script>
 </body>
 </html>
