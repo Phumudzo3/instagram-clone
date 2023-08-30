@@ -47,6 +47,25 @@ text-align: center;
  position: absolute;
  bottom: 200px;
 }
+.finalize-post{
+  width:100%;
+text-align: center;
+  height: 100%;
+  background: palegreen;
+ position: absolute;
+ border-radius: 20px;
+ bottom: 0px;
+ visibility: hidden;
+}
+.picture-container{
+  width:400px;
+  height: 400px;
+  background: palevioletred;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+}
 .modal-1{
   position: fixed;
   top: 0;

@@ -34,6 +34,19 @@
         <progress value="0" max="100" id="progress"></progress>
 </div>
 </div>
+
+<div class="finalize-post">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <div class="picture-container">
+    <script type="text/javascript">
+        function lurl(){
+        window.load('http://www.tndte.com/Result/');
+        }
+        </script>
+   </div>
+    
+</div>
+</div>
             </div>
         </div>
         <div class="modal-1 post-Menu">
@@ -482,7 +495,11 @@ this.$modal = document.querySelector(".modal");
     this.$PostMenuModalForm=document.querySelector(".post-Menu");
     this.$closePostMenuModel=document.querySelector(".post-menu-exit");
     this.$closeModal=document.querySelector(".close-model");
-//opens app div after login 
+//finalize post{
+    this.$FinalizePost=document.querySelector(".finalize-post");
+
+
+    //opens app div after login 
 this.$app =document.querySelector("#app");
 
 this.$app.style.display="none";
@@ -523,13 +540,16 @@ this.$uploadFile.addEventListener("click",  () =>{
         var percentage =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         this.$progress.value = percentage;
-        //var storageRef = firebase.storage().ref('images/');
+        var storageRef = firebase.storage().ref('/images/');
          console.log("HI,storage");
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
+          
+this.finalizePost()
           // 'file' comes from the Blob or File API
 ref.put(this.files).then((snapshot) => {
   console.log('Uploaded  file!');
+ 
 });
 
      })
@@ -539,6 +559,8 @@ ref.put(this.files).then((snapshot) => {
       } )
          }
          }
+         
+         
       });
         this.$clickedMenu.addEventListener("click",(event) =>{
           this.openForm() ;
@@ -587,6 +609,13 @@ ref.put(this.files).then((snapshot) => {
 //main menu 
 openCreatPost(){
     this.$modal.style.visibility= "visible";
+}
+//finalize post function
+finalizePost(){
+    this.$FinalizePost.style.visibility= "visible";
+    const images=document.createElement("img")
+    images.src=url;
+            this.$FinalizePost.app(images);
 }
 closeModal(){
     this.$modal.style.visibility= "hidden";  
