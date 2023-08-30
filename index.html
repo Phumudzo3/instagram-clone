@@ -649,12 +649,12 @@ handleAuth(){
         
         if (user) {
    // duplicate username to html class="auth-user"
-            //this.$authUserText.forEach((element) => {
-                //element.innerHTML = username;});
-             // this.userId = user.uid;
-          console.log(user);
-          this.userId=user;
-          this.$authUserText.innerHTML=user.displayName;
+   this.userId = user;
+   const username=user.displayName;
+            this.$authUserText.forEach((element) => {
+                element.innerHTML = username;});
+              console.log(user);
+         // this.$authUserText.innerHTML=user.displayName;
          this.redirectToApp();
        } else {
         this.redictTOAuth();
