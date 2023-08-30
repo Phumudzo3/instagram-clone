@@ -549,11 +549,11 @@ this.$uploadFile.addEventListener("click",  () =>{
          console.log("HI,storage");
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
-             //const images=document.createElement("img")
-            // images.style.width="400px";
-            // images.style.height="400px";
-// images.src=url;
-    //this.$imageDiv.appendChild(images);
+             const images=document.createElement("img");
+            images.style.width="400px";
+             images.style.height="400px";
+ images.src=url;
+this.$imageDiv.appendChild(images);
 this.finalizePost()
           // 'file' comes from the Blob or File API
 ref.put(this.files).then((snapshot) => {
@@ -649,10 +649,11 @@ handleAuth(){
         
         if (user) {
    // duplicate username to html class="auth-user"
-   this.userId = user;
+   this.userId = user.uid;
    const username=user.displayName;
             this.$authUserText.forEach((element) => {
                 element.innerHTML = username;});
+
               console.log(user);
          // this.$authUserText.innerHTML=user.displayName;
          this.redirectToApp();
