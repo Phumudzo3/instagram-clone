@@ -455,7 +455,7 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
  <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script> 
-<script type="module">
+<script >
  // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
@@ -499,24 +499,26 @@ this.$modal = document.querySelector(".modal");
     this.$imageDiv=document.querySelector(".picture-container");
 
     //opens app div after login 
-this.$app =document.querySelector("#app");
-
+    this.$firebaseAuthContainer=document.querySelector("#firebaseui-auth-container");
+     this.$app =document.querySelector("#app");
 this.$app.style.display="none";
 //variables for creating a uploading files
-this.$progress=document.getElementById("progress")
-this.$uploadFile=document.getElementById("send")
-this.$getFile=document.getElementById("files")
+this.$progress=document.getElementById("progress");
+this.$uploadFile=document.getElementById("send");
+this.$getFile=document.getElementById("files");
 //access of firebase login interface variable
-this.ui = new firebaseui.auth.AuthUI(auth);
+this.$modalForm=document.querySelector(".modal-form");
 this.$logOutButton =document.querySelector(".logout");
-this.$authUserText = document.querySelectorAll('.auth-user');
+this.$authUserText = document.querySelectorAll(".auth-user");
+this.ui = new firebaseui.auth.AuthUI(auth);
      this.$firebaseAuthContainer=document.querySelector("#firebaseui-auth-container");
      this.userId="";
-     this.files =[];
+     
     this.handleAuth();
      this.addEventListeners();
     }
      addEventListeners(){
+        this.files =[];
  // Declare files as a property of the class
 this.$getFile.addEventListener("change", (e) =>{
 // the event listener for file input
@@ -536,18 +538,17 @@ this.$uploadFile.addEventListener("click",  () =>{
              upload.on(
       "state_changed",
       (snapshot) => {
-        var percentage =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        var percentage =(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         this.$progress.value = percentage;
        // var storageRef = firebase.storage().ref('images/');
          console.log("HI,storage");
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
-             const images=document.createElement("img")
-             images.style.width="400px";
-             images.style.height="400px";
-    images.src=url;
-    this.$imageDiv.appendChild(images);
+             //const images=document.createElement("img")
+            // images.style.width="400px";
+            // images.style.height="400px";
+// images.src=url;
+    //this.$imageDiv.appendChild(images);
 this.finalizePost()
           // 'file' comes from the Blob or File API
 ref.put(this.files).then((snapshot) => {
@@ -631,64 +632,62 @@ closePostMenuform(){
 }
 //callback to signing out user
 handleLogOut(){
-        firebase.auth().signOut().then(() => {
-      // Sign-out successful.
+    firebase.auth().signOut().then(() => {
+  // Sign-out successful.
+    this.redictTOAuth();
+}).catch((error) => {
+  console.log("error accrred",error);
+});
+}
+handleAuth(){
+    firebase.auth().onAuthStateChanged((user) => {
+        
+        if (user) {
+   // duplicate username to html class="auth-user"
+            //this.$authUserText.forEach((element) => {
+                //element.innerHTML = username;});
+             // this.userId = user.uid;
+          console.log(user);
+          this.userId=user;
+          this.$authUserText.innerHTML=user.displayName;
+         this.redirectToApp();
+       } else {
         this.redictTOAuth();
-    }).catch((error) => {
-      console.log("error accrred",error);
-    });
     }
-    handleAuth(){
-        firebase.auth().onAuthStateChanged((user) => {
-            
-            if (user) {
-            console.log(user);
-            this.userId = user.uid; 
-            const username = user.displayName;
-             // duplicate username to html class="auth-user"
-            this.$authUserText.forEach((element) => {
-                element.innerHTML = username;});
-              this.userId = user.uid;
-             // this.$authUserText.$innerHTML = user.displayName;
-      //this.pseudo = user.displayName.replace(/\s+/g, '.auth-user');
-     // this.userName =  this.pseudo;
-    // this.$authUserText.innerHTML = this.pseudo;
-           
-             this.redirectToApp();
-           } else {
-            this.redictTOAuth();
-        }
-         });
+     });
+}
+
+
+redictTOAuth(){
+ this.$firebaseAuthContainer.style.display="block";
+  this.$app.style.display="none";
+   this.ui.start('#firebaseui-auth-container', {
+    callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+     // this.userId=authResult.user;
+     console.log("authResult",authResult.user);
+     this.userId=authResult.user;
+          this.$authUserText.innerHTML=user.displayName;
+         this.redirectToApp();
+     
+      return true;
     }
-     redictTOAuth(){
-      this.$firebaseAuthContainer.style.display="block";
-      this.$app.style.display="none";
-       this.ui.start('#firebaseui-auth-container', {
-        callbacks: {
-        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-         // this.userId=authResult.user;
-         console.log("authResult",authResult.user);
-         this.userId=authResult.user;
-              this.$authUserText.innerHTML=user.displayName;
-             this.redirectToApp();
-         
-          return true;
-        }
-        },
-            signInOptions: [
-             firebase.auth.EmailAuthProvider.PROVIDER_ID,
-             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            ],
-              // Other config options...
-         });
-    }
-    redirectToApp(){
-       this.$firebaseAuthContainer.style.display="none";
-       this.$app.style.display="block";
-    }
+    },
+        signInOptions: [
+         firebase.auth.EmailAuthProvider.PROVIDER_ID,
+         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        ],
+          // Other config options...
+     });
+}
+redirectToApp(){
+   this.$firebaseAuthContainer.style.display="none";
+   this.$app.style.display="block";
+   
+}
 }
 const profile=new Profile() ;
   </script>
