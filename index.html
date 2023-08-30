@@ -47,7 +47,7 @@
 </div>
 </div>
             </div>
-        </div>
+       
         <div class="modal-1 post-Menu">
             <div class="modal-content-1">
                 <div class="post-menu">
@@ -450,12 +450,16 @@
             </div>
             </div>
         </div>
+    
     </div>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        
+
+        
+        <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
  <script defer src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script> 
-<script >
+<script type="module" >
  // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
@@ -516,9 +520,10 @@ this.ui = new firebaseui.auth.AuthUI(auth);
      
     this.handleAuth();
      this.addEventListeners();
+     this.files =[];
     }
      addEventListeners(){
-        this.files =[];
+    
  // Declare files as a property of the class
 this.$getFile.addEventListener("change", (e) =>{
 // the event listener for file input
