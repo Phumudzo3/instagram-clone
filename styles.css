@@ -51,20 +51,34 @@ text-align: center;
   width:100%;
 text-align: center;
   height: 100%;
-  background: palegreen;
+  background: white;
  position: absolute;
  border-radius: 20px;
  bottom: 0px;
- visibility: hidden;
+ visibility: idden;
 }
+.file-caption{
+width: 90%;
+height: 25px;
+border-radius: 20px;
+margin-top: 40px;
+margin-left: auto;
+margin-right: auto;
+border: none;
+padding-left: 150px;
+
+}
+
+
+
 .picture-container{
   width:400px;
   height: 400px;
-  background: palevioletred;
+  background: white;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
+  margin-top:20px;
 }
 .modal-1{
   position: fixed;

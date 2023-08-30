@@ -36,13 +36,12 @@
 </div>
 
 <div class="finalize-post">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <div class="">
+    <input type ="text" placeholder="add caption" class="file-caption"/>
+   </div>
    <div class="picture-container">
-    <script type="text/javascript">
-        function lurl(){
-        window.load('http://www.tndte.com/Result/');
-        }
-        </script>
+    
+    
    </div>
     
 </div>
@@ -497,7 +496,7 @@ this.$modal = document.querySelector(".modal");
     this.$closeModal=document.querySelector(".close-model");
 //finalize post{
     this.$FinalizePost=document.querySelector(".finalize-post");
-
+    this.$imageDiv=document.querySelector(".picture-container");
 
     //opens app div after login 
 this.$app =document.querySelector("#app");
@@ -540,11 +539,15 @@ this.$uploadFile.addEventListener("click",  () =>{
         var percentage =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         this.$progress.value = percentage;
-        var storageRef = firebase.storage().ref('/images/');
+       // var storageRef = firebase.storage().ref('images/');
          console.log("HI,storage");
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
-          
+             const images=document.createElement("img")
+             images.style.width="400px";
+             images.style.height="400px";
+    images.src=url;
+    this.$imageDiv.appendChild(images);
 this.finalizePost()
           // 'file' comes from the Blob or File API
 ref.put(this.files).then((snapshot) => {
@@ -613,9 +616,7 @@ openCreatPost(){
 //finalize post function
 finalizePost(){
     this.$FinalizePost.style.visibility= "visible";
-    const images=document.createElement("img")
-    images.src=url;
-            this.$FinalizePost.app(images);
+  
 }
 closeModal(){
     this.$modal.style.visibility= "hidden";  
