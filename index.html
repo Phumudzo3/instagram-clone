@@ -624,12 +624,15 @@ this.$uploadFile.addEventListener("click",  () =>{
 this.$imageDiv.appendChild(images);
 this.$imageDivstyle.width="400px";
 this.$imageDiv.style.height="400px";
+           
 this.$imageDiv.style.backgroundRepeat="no-repeat";
+          <!--  
 this.$postOnFeedImageDiv.appendChild(images);
 this.$postOnFeedImageDiv.style.width=" 30vw";
 this.$postOnFeedImageDiv.style.height="40vh";
 this.$postOnFeedImageDiv.style.marginTop= "10px";
-this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";
+this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";4
+          -->
 this.finalizePost()
           // 'file' comes from the Blob or File API
 ref.put(this.files).then((snapshot) => {
