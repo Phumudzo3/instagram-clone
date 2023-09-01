@@ -36,6 +36,7 @@
 </div>
 
 <div class="finalize-post">
+    <button class="post diplayPostOnFeeds">Post</button>
    <div class="">
     <input type ="text" placeholder="add caption" class="file-caption"/>
    </div>
@@ -236,7 +237,7 @@
                        
                             </div>
                             <div class="photo">
-                                <img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">
+                               <img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px"> 
                             </div>
                             <div class="status-footer">
                                 <div class="status-footer-1">
@@ -283,7 +284,7 @@
             
                             </div>
                             
-                            <br><br><br>
+                            <br><br><br><br>
             
                             <div class="status">
                                 <div class="status-bar">
@@ -344,7 +345,72 @@
                                         </div>
                                         <br>
             <hr>
+            <br>   
                                         </div>
+                                        <br><br><br>  <br>   
+                                        <div class="status open-status">
+                                            <div class="status-bar">
+                                                <div class="status-bar1">
+                                                    <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="40" height="40"></span>
+                                                        <span class="auth-user"> . 19h</span>
+                                                        
+                                                </div>
+                                                <div class="status-bar2-2">
+                                                    <span class="material-icons open-modal-post-menu">
+                                                        more_horiz
+                                                        </span>
+                                                </div>
+                                               
+                                                    </div>
+                                                    <div class="photo">
+                                                        
+                                                    </div><!--<img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">-->
+                                                    <div class="status-footer">
+                                                        <div class="status-footer-1">
+                                                            <span class="material-icons">
+                                                                favorite_border
+                                                                </span>
+                                                                <span class="material-icons">
+                                                                    mode_comment
+                                                                    </span>
+                                                                    <span class="material-icons">
+                                                                        favorite_border
+                                                                        </span>
+                                                                
+                                                        </div>
+                                                        <div class="status-footer-2">
+                                                            <span class="material-icons">
+                                                                bookmark
+                                                                </span>
+                                                                
+                                                                
+                                                        </div>
+                                                        
+                                    
+                                                    </div>
+                                                    <div class="comment-section">
+                                                        <div class="rnav-bar1">
+                                                            <span ><img src="asset/x.jpg" width="15" height="15"></span>
+                                                                <div class="profile-name">
+                                                                    <span class="likes-comment">Liked by Shaun_ and others</span>
+                                                                </div>
+                                                                </div>
+                                    <span class="likes-comment status-com auth-user"> Love </span>
+                                    
+                                    <div class="add-comment">
+                                        <span class="likes-comment">Add a comment...</span>
+                                        <span class="material-icons">
+                                            sentiment_satisfied_alt
+                                            </span>
+                                    </div>
+                                    
+                                                    </div>
+                                                    <br>
+                                    <hr>
+                                    
+                                                    </div>
+                                                    
+                                                    
                         </div>
                 <div class="right-nav box3">
                 <div class="status-bar-rnav p1">
@@ -492,7 +558,9 @@ this.$clickLogout = document.querySelector(".clickLogOut");
 this.$modal = document.querySelector(".modal");
     this.$modalForm=document.querySelector(".modal-form");
     this.$createPost=document.querySelector(".open-modal");
-
+//open-status variable
+this.$openstatus=document.querySelector(".open-status");
+this.$clickOpenStatus=document.querySelector(".diplayPostOnFeeds");
     //post menu
     this.$modalOpenPostModel = document.querySelector(".open-modal-post-menu");
     this.$PostMenuModalForm=document.querySelector(".post-Menu");
@@ -501,7 +569,8 @@ this.$modal = document.querySelector(".modal");
 //finalize post{
     this.$FinalizePost=document.querySelector(".finalize-post");
     this.$imageDiv=document.querySelector(".picture-container");
-
+    //uploading-photo variable
+    this.$postOnFeedImageDiv=document.querySelector(".photo-uploading");
     //opens app div after login 
     this.$firebaseAuthContainer=document.querySelector("#firebaseui-auth-container");
      this.$app =document.querySelector("#app");
@@ -545,15 +614,17 @@ this.$uploadFile.addEventListener("click",  () =>{
       (snapshot) => {
         var percentage =(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         this.$progress.value = percentage;
-       // var storageRef = firebase.storage().ref('images/');
+      // var storageRef = firebase.storage().ref('images/');
          console.log("HI,storage");
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
              const images=document.createElement("img");
             images.style.width="400px";
              images.style.height="400px";
+             images.style.backgroundRepeat="no-repeat";
  images.src=url;
 this.$imageDiv.appendChild(images);
+
 this.finalizePost()
           // 'file' comes from the Blob or File API
 ref.put(this.files).then((snapshot) => {
@@ -600,15 +671,26 @@ ref.put(this.files).then((snapshot) => {
     });
 //callback to click to close post menu
     this.$closePostMenuModel.addEventListener("click",(event) =>{
-       console.log("clicked close post menu")
+       console.log("clicked close post menu");
         this.closePostMenuform();
     });
-
+    this.$clickOpenStatus.addEventListener("click",(event) =>{
+        console.log("open status");
+        this.openLoadedStatus();
+    });
+    }
+    //
+    openLoadedStatus(){
+        this.$openstatus.style.visibility="visible";
+        this.$modal.style.visibility="hidden";
+        this.$FinalizePost.style.visibility = "hidden";
+        console.log("posted on feed");
     }
     //open menu form
  openForm() {
         this.$form.style.visibility = "visible";
         this.$clickedMenu.style.visibility = "hidden";
+        this.$FinalizePost.style.visibility = "hidden";
       }
       //close menu form
       closeForm() {
