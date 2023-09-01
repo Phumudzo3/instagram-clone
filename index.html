@@ -362,7 +362,7 @@
                                                 </div>
                                                
                                                     </div>
-                                                    <div class="photo">
+                                                    <div class="photo-uploading">
                                                         
                                                     </div><!--<img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">-->
                                                     <div class="status-footer">
@@ -619,12 +619,17 @@ this.$uploadFile.addEventListener("click",  () =>{
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
              const images=document.createElement("img");
-            images.style.width="400px";
-             images.style.height="400px";
-             images.style.backgroundRepeat="no-repeat";
+            
  images.src=url;
 this.$imageDiv.appendChild(images);
-
+this.$imageDivstyle.width="400px";
+this.$imageDiv.style.height="400px";
+this.$imageDiv.style.backgroundRepeat="no-repeat";
+this.$postOnFeedImageDiv.appendChild(images);
+this.$postOnFeedImageDiv.style.width=" 30vw";
+this.$postOnFeedImageDiv.style.height="40vh";
+this.$postOnFeedImageDiv.style.marginTop= "10px";
+this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";
 this.finalizePost()
           // 'file' comes from the Blob or File API
 ref.put(this.files).then((snapshot) => {
