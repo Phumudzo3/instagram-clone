@@ -619,12 +619,12 @@ this.$uploadFile.addEventListener("click",  () =>{
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
              const images=document.createElement("img");
-            
+             this.$imageDiv.style.width="400px";
+this.$imageDiv.style.height="400px";
+//this.$imageDiv.style.backgroundRepeat="no-repeat";
  images.src=url;
 this.$imageDiv.appendChild(images);
-this.$imageDivstyle.width="400px";
-this.$imageDiv.style.height="400px";
-this.$imageDiv.style.backgroundRepeat="no-repeat";
+
 this.$postOnFeedImageDiv.appendChild(images);
 this.$postOnFeedImageDiv.style.width=" 30vw";
 this.$postOnFeedImageDiv.style.height="40vh";
