@@ -38,14 +38,11 @@
 <div class="finalize-post">
     <button class="post diplayPostOnFeeds">Post</button>
    <div class="">
-    <input type ="text" placeholder="add caption" class="file-caption"/>
+    <input type ="text" placeholder="add caption" class="file-caption" id="text-value" />
    </div>
    <div class="picture-container">
-    
-    
-   </div>
-    
 </div>
+    </div>
 </div>
             </div>
        
@@ -230,7 +227,7 @@
                                 
                         </div>
                         <div class="status-bar2-2">
-                            <span class="material-icons open-modal-post-menu">
+                            <span class="material-icons ">
                                 more_horiz
                                 </span>
                         </div>
@@ -284,9 +281,9 @@
             
                             </div>
                             
-                            <br><br><br><br>
-            
-                            <div class="status">
+                           
+                            <br><br><br>  <br> 
+                            <div class="status status-box">
                                 <div class="status-bar">
                                     <div class="status-bar1">
                                         <span ><img src="asset/pexels-marta-dzedyshko-2377470.jpg" width="40" height="40"></span>
@@ -363,8 +360,11 @@
                                                
                                                     </div>
                                                     <div class="photo-uploading">
+                                                        <!--<img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">-->
+                                                    <div class="pic-posted">
                                                         
-                                                    </div><!--<img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">-->
+                                                    </div>
+                                                    </div>
                                                     <div class="status-footer">
                                                         <div class="status-footer-1">
                                                             <span class="material-icons">
@@ -395,7 +395,8 @@
                                                                     <span class="likes-comment">Liked by Shaun_ and others</span>
                                                                 </div>
                                                                 </div>
-                                    <span class="likes-comment status-com auth-user"> Love </span>
+                                    <span class="likes-comment status-com auth-user"> <p id="title-posted"></p> 
+                                    </span>
                                     
                                     <div class="add-comment">
                                         <span class="likes-comment">Add a comment...</span>
@@ -551,10 +552,15 @@ console.log(storage);
  //console.log(storage); 
 class Profile{
     constructor(){
+        //adding file caption variable
+        this.$fileCaption=document.getElementById("text-value");
+        this.$titleStatus=document.getElementById("title-posted");
 this.$form=document.getElementById("myForm");
+//click menu variable
 this.$clickedMenu = document.querySelector(".clickedMenu");
+//logout variable
 this.$clickLogout = document.querySelector(".clickLogOut");
-//create post -upload files
+//create post -upload files variable
 this.$modal = document.querySelector(".modal");
     this.$modalForm=document.querySelector(".modal-form");
     this.$createPost=document.querySelector(".open-modal");
@@ -570,7 +576,7 @@ this.$clickOpenStatus=document.querySelector(".diplayPostOnFeeds");
     this.$FinalizePost=document.querySelector(".finalize-post");
     this.$imageDiv=document.querySelector(".picture-container");
     //uploading-photo variable
-    this.$postOnFeedImageDiv=document.querySelector(".photo-uploading");
+    this.$postOnFeedImageDiv=document.querySelector(".pic-posted");
     //opens app div after login 
     this.$firebaseAuthContainer=document.querySelector("#firebaseui-auth-container");
      this.$app =document.querySelector("#app");
@@ -605,7 +611,8 @@ this.$uploadFile.addEventListener("click",  () =>{
          //loop through all the selected files
          for(let i=0;i<this.files.length;i++){
       //create a storage reference
-              var storageRef = firebase.storage().ref(this.files[i].name);
+      var storageRef = firebase.storage().ref('images/'+ this.files[i].name);
+
        //upload files
              var upload = storageRef.put(this.files[i]);
              //update progress bar
@@ -614,27 +621,37 @@ this.$uploadFile.addEventListener("click",  () =>{
       (snapshot) => {
         var percentage =(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         this.$progress.value = percentage;
-      // var storageRef = firebase.storage().ref('images/');
+      //var storageRef = firebase.storage().ref(+ this.files[i].name);
          console.log("HI,storage");
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
-             const images=document.createElement("img");
-             this.$imageDiv.style.width="400px";
-this.$imageDiv.style.height="400px";
-//this.$imageDiv.style.backgroundRepeat="no-repeat";
+             const images=document.createElement("img"); 
+             const imagePosted=document.createElement("img");
+             // Set the width and height properties for both images
+    images.style.width = "400px";
+    images.style.height = "400px";
+    imagePosted.style.width = "410px";
+    imagePosted.style.height = "500px";
+        
  images.src=url;
-this.$imageDiv.appendChild(images);
 
-this.$postOnFeedImageDiv.appendChild(images);
-this.$postOnFeedImageDiv.style.width=" 30vw";
-this.$postOnFeedImageDiv.style.height="40vh";
+this.$imageDiv.appendChild(images);
+this.$postOnFeedImageDiv.appendChild(imagePosted);
+this.$imageDiv.style.width="400px";
+this.$imageDiv.style.height="400px";
+
+imagePosted.src=url;
+this.$postOnFeedImageDiv.style.width="410px";
+this.$postOnFeedImageDiv.style.height="500px";
 this.$postOnFeedImageDiv.style.marginTop= "10px";
 this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";
-this.finalizePost()
+//this.$imageDiv.style.backgroundRepeat="no-repeat";
+
+
           // 'file' comes from the Blob or File API
-ref.put(this.files).then((snapshot) => {
+storageRef.put(this.files).then((snapshot) => {
   console.log('Uploaded  file!');
- 
+  this.finalizePostAfterLoadingFiles();
 });
 
      })
@@ -645,8 +662,9 @@ ref.put(this.files).then((snapshot) => {
          }
          }
          
-         
+        
       });
+    
         this.$clickedMenu.addEventListener("click",(event) =>{
           this.openForm() ;
         });
@@ -707,9 +725,11 @@ openCreatPost(){
     this.$modal.style.visibility= "visible";
 }
 //finalize post function
-finalizePost(){
+finalizePostAfterLoadingFiles(){
     this.$FinalizePost.style.visibility= "visible";
-  
+    this.$titleStatus.innerHTML= this.$fileCaption.value ;
+   
+  // this.$fileCaption.value="";
 }
 closeModal(){
     this.$modal.style.visibility= "hidden";  

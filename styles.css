@@ -77,7 +77,6 @@ border-radius: 20px;
 margin-top: 40px;
 margin-left: auto;
 margin-right: auto;
-border: none;
 padding-left: 150px;
 
 }
@@ -319,14 +318,14 @@ text-align: center;
 .status{
   width: 30vw;
   height:85vh;
- 
-  margin: 0 auto;
+ margin: 0 auto;
   margin-top: 50px;
 }
 /* adding new status on the feed*/
 .open-status{
   visibility: hidden;
 }
+
 
 /* status div styling */
 .status-bar{
@@ -361,6 +360,18 @@ text-align: center;
   margin-top: 10px;
   width: 30vw;
   height: 40vh;
+  
+}
+.pic-posted{
+  margin-top: 10px;
+  width: 410px;
+  height: 500px;
+ 
+}
+.photo-uploading{
+  margin-top: 10px;
+  width: 30vw;
+  height: 40vh
 }
 .status-footer{
   display:flex;
