@@ -49,8 +49,8 @@
         <div class="modal-1 post-Menu">
             <div class="modal-content-1">
                 <div class="post-menu">
-                    <button class="btn-menu top-btn"><span class="main-function">Edit</span></button>
-                    <button class="btn-menu "><span class="main-function">Delete</span> </button>
+                    <button class="btn-menu top-btn"><span class="main-function editPost">Edit</span></button>
+                    <button class="btn-menu "><span class="main-function deletePost">Delete</span> </button>
                     <button class="btn-menu"><span>Add to favorite</span> </button>
                     <button class="btn-menu"><span>Go to post</span></button>
                     <button class="btn-menu"><span>Share to...</span> </button>
@@ -597,7 +597,10 @@ this.$authUserText = document.querySelectorAll(".auth-user");
 this.ui = new firebaseui.auth.AuthUI(auth);
      this.$firebaseAuthContainer=document.querySelector("#firebaseui-auth-container");
      this.userId="";
-     
+     //edit and delete post variables
+     this.$editPost = document.querySelector(".editPost");
+     this.$deletePost = document.querySelector(".deletePost");
+
     this.handleAuth();
      this.addEventListeners();
      this.files =[];
@@ -657,6 +660,7 @@ this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";
 storageRef.put(this.files).then((snapshot) => {
   console.log('Uploaded  file!');
   this.finalizePostAfterLoadingFiles();
+   this.$fileCaption.value="";
 });
 
      })
@@ -708,7 +712,15 @@ storageRef.put(this.files).then((snapshot) => {
        this.$titleStatus.innerHTML= this.$fileCaption.value ;
         this.openLoadedStatus();
     });
+    this.$editPost.addEventListener("click",(event) =>{
+       this.editPost();
+    });
+    this.$deletePost.addEventListener("click",(event) =>{
+       console.log("delete post");
+       this.deletePost();
+    });
     }
+    
     //
     openLoadedStatus(){
         this.$openstatus.style.visibility="visible";
@@ -734,10 +746,24 @@ openCreatPost(){
 //finalize post function
 finalizePostAfterLoadingFiles(){
     this.$FinalizePost.style.visibility= "visible";
-    
-   
-  // this.$fileCaption.value="";
 }
+//delete post function
+deletePost(){
+// Create a reference to the file to delete
+var desertRef = storageRef.child('images/+ this.files[i].name')
+
+// Delete the file
+desertRef.delete().then(() => {
+  // File deleted successfully
+  this.$openstatus.replaceChildren();
+}).catch((error) => {
+  // Uh-oh, an error occurred!
+});
+}
+editPost(){
+
+}
+//edit post function
 closeModal(){
     this.$modal.style.visibility= "hidden";  
 }

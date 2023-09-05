@@ -10,6 +10,12 @@ body{
 }
 #app{
   display: none;
+ 
+}
+#firebaseui-auth-container{
+  margin-top: 200px;
+  margin-right: 100px;
+  
 }
 /* left nav */
 .box1 {
@@ -392,7 +398,7 @@ text-align: center;
 }
 .status-footer-1 span{
   padding: 0px 10px 0px 18px;
-  margin-left: -15px;
+  margin-left: -15 px;
 
 }
 /* box3 div */
