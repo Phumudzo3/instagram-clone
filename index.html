@@ -49,8 +49,8 @@
         <div class="modal-1 post-Menu">
             <div class="modal-content-1">
                 <div class="post-menu">
-                    <button class="btn-menu top-btn"><span class="main-function editPost">Edit</span></button>
-                    <button class="btn-menu "><span class="main-function deletePost">Delete</span> </button>
+                    <button class="btn-menu top-btn editPost"><span class="main-function ">Edit</span></button>
+                    <button class="btn-menu deletePost "><span class="main-function ">Delete</span> </button>
                     <button class="btn-menu"><span>Add to favorite</span> </button>
                     <button class="btn-menu"><span>Go to post</span></button>
                     <button class="btn-menu"><span>Share to...</span> </button>
@@ -269,7 +269,7 @@
          
             <div class="user-details-capt">
                 
-                <b><span class="likes-comment status-com auth-user">  </span></b><span id="title-posted">Love</span>
+                <b><span class="likes-comment status-com auth-user">  </span></b><span class="title-post">Love</span>
               </div>
             <div class="add-comment">
                 <span class="likes-comment">Add a comment...</span>
@@ -335,7 +335,7 @@
                                                     </div>
                         
                         <div class="user-details-capt">
-                         <b><span class="likes-comment status-com auth-user"> </span></b><span id="title-posted"> #flowers #nature #me</span> 
+                         <b><span class="likes-comment status-com auth-user"> </span></b><span  class="title-post"> #flowers #nature #me</span> 
                         </div>
                         <div class="add-comment">
                             <span class="likes-comment">Add a comment...</span>
@@ -660,7 +660,7 @@ this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";
 storageRef.put(this.files).then((snapshot) => {
   console.log('Uploaded  file!');
   this.finalizePostAfterLoadingFiles();
-   this.$fileCaption.value="";
+   
 });
 
      })
@@ -718,6 +718,7 @@ storageRef.put(this.files).then((snapshot) => {
     this.$deletePost.addEventListener("click",(event) =>{
        console.log("delete post");
        this.deletePost();
+       this.closePostMenuform();
     });
     }
     
@@ -746,21 +747,33 @@ openCreatPost(){
 //finalize post function
 finalizePostAfterLoadingFiles(){
     this.$FinalizePost.style.visibility= "visible";
+    
 }
 //delete post function
 deletePost(){
+    if (this.files.length!=0){
+         //loop through all the selected files
+         for(let i=0;i<this.files.length;i++){
+      //create a storage reference
 // Create a reference to the file to delete
-var desertRef = storageRef.child('images/+ this.files[i].name')
-
+var desertRef =firebase.storage().ref('images/'+ this.files[i].name);
+         
 // Delete the file
 desertRef.delete().then(() => {
   // File deleted successfully
+  console.log("deleted post from storage")
+
   this.$openstatus.replaceChildren();
-}).catch((error) => {
+
+})
+.catch((error) => {
   // Uh-oh, an error occurred!
 });
+    }
+    }
 }
 editPost(){
+this.finalizePostAfterLoadingFiles()
 
 }
 //edit post function
@@ -773,7 +786,8 @@ openPostMenuForm(){
 }
 
 closePostMenuform(){
-    this.$PostMenuModalForm.style.visibility= "hidden";  
+    this.$PostMenuModalForm.style.visibility= "hidden";
+    this.$getFile.value="";  
 }
 //callback to signing out user
 handleLogOut(){
