@@ -36,7 +36,7 @@
 </div>
 
 <div class="finalize-post">
-    <button class="post diplayPostOnFeeds">Post</button>
+    <button class="post-btn diplayPostOnFeeds">Post</button>
    <div class="">
     <input type ="text" placeholder="add caption" class="file-caption" id="text-value" />
    </div>
@@ -244,9 +244,9 @@
                                         <span class="material-icons">
                                             mode_comment
                                             </span>
-                                            <span class="material-icons">
-                                                favorite_border
-                                                </span>
+                                            <span class=" material-icons rotate-item">
+                                                send
+                                                  </span>
                                         
                                 </div>
                                 <div class="status-footer-2">
@@ -266,8 +266,11 @@
                                             <span class="likes-comment">Liked by Shaun_ and others</span>
                                         </div>
                                         </div>
-            <span class="likes-comment status-com auth-user"> Love </span>
-            
+         
+            <div class="user-details-capt">
+                
+                <b><span class="likes-comment status-com auth-user">  </span></b><span id="title-posted">Love</span>
+              </div>
             <div class="add-comment">
                 <span class="likes-comment">Add a comment...</span>
                 <span class="material-icons">
@@ -308,9 +311,9 @@
                                                     <span class="material-icons">
                                                         mode_comment
                                                         </span>
-                                                        <span class="material-icons">
-                                                            favorite_border
-                                                            </span>
+                                                        <span class=" material-icons rotate-item">
+                                                            send
+                                                              </span>
                                                     
                                             </div>
                                             <div class="status-footer-2">
@@ -330,8 +333,10 @@
                                                         <span class="likes-comment">Liked by Shaun_ and others</span>
                                                     </div>
                                                     </div>
-                        <span class="likes-comment status-com auth-user"> #flowers #nature #me </span>
                         
+                        <div class="user-details-capt">
+                         <b><span class="likes-comment status-com auth-user"> </span></b><span id="title-posted"> #flowers #nature #me</span> 
+                        </div>
                         <div class="add-comment">
                             <span class="likes-comment">Add a comment...</span>
                             <span class="material-icons">
@@ -373,20 +378,17 @@
                                                                 <span class="material-icons">
                                                                     mode_comment
                                                                     </span>
-                                                                    <span class="material-icons">
-                                                                        favorite_border
-                                                                        </span>
+                                                                    <span class=" material-icons rotate-item">
+                                                                        send
+                                                                          </span>
                                                                 
                                                         </div>
                                                         <div class="status-footer-2">
                                                             <span class="material-icons">
                                                                 bookmark
                                                                 </span>
-                                                                
-                                                                
+                                                            
                                                         </div>
-                                                        
-                                    
                                                     </div>
                                                     <div class="comment-section">
                                                         <div class="rnav-bar1">
@@ -395,8 +397,11 @@
                                                                     <span class="likes-comment">Liked by Shaun_ and others</span>
                                                                 </div>
                                                                 </div>
-                                    <span class="likes-comment status-com auth-user"> <p id="title-posted"></p> 
-                                    </span>
+                                                                <div class="user-details-capt">
+                                                                    <b><span class="likes-comment status-com auth-user "> </span></b><span id="title-posted"> </span>
+                                                                </div>
+
+                                   
                                     
                                     <div class="add-comment">
                                         <span class="likes-comment">Add a comment...</span>
@@ -682,6 +687,7 @@ storageRef.put(this.files).then((snapshot) => {
     this.$createPost.addEventListener("click",(event) =>{
         this.openCreatPost();
         console.log("create post")
+       
     });
     this.$closeModal.addEventListener("click",(event) =>{
         this.closeModal();
@@ -699,6 +705,7 @@ storageRef.put(this.files).then((snapshot) => {
     });
     this.$clickOpenStatus.addEventListener("click",(event) =>{
         console.log("open status");
+       this.$titleStatus.innerHTML= this.$fileCaption.value ;
         this.openLoadedStatus();
     });
     }
@@ -727,7 +734,7 @@ openCreatPost(){
 //finalize post function
 finalizePostAfterLoadingFiles(){
     this.$FinalizePost.style.visibility= "visible";
-    this.$titleStatus.innerHTML= this.$fileCaption.value ;
+    
    
   // this.$fileCaption.value="";
 }
