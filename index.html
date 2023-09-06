@@ -613,9 +613,6 @@ this.$getFile.addEventListener("change", (e) =>{
 this.files= e.target.files;
          console.log("Files selected:", this.files);
 
-    
- 
-
          });
 this.$uploadFile.addEventListener("click",  () =>{ 
             //check if the files are selected  
@@ -668,7 +665,7 @@ this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";
           // 'file' comes from the Blob or File API
 storageRef.put(this.files).then((snapshot) => {
   console.log('Uploaded  file!');
-  (this.files).push(this.files[i].name);
+ 
   this.finalizePostAfterLoadingFiles();
  
 });
