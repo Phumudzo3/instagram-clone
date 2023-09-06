@@ -610,16 +610,24 @@ this.ui = new firebaseui.auth.AuthUI(auth);
  // Declare files as a property of the class
 this.$getFile.addEventListener("change", (e) =>{
 // the event listener for file input
-       this.files= e.target.files;
+this.files= e.target.files;
          console.log("Files selected:", this.files);
+
+    
+ 
+
          });
 this.$uploadFile.addEventListener("click",  () =>{ 
             //check if the files are selected  
      if (this.files.length!=0){
          //loop through all the selected files
          for(let i=0;i<this.files.length;i++){
+          //  if ((this.files).includes(this.files[i].name)) {
+ //console.log("File already uploaded:", this.files[i].name)
+//continue;}
       //create a storage reference
       var storageRef = firebase.storage().ref('images/'+ this.files[i].name);
+ // Check if the file name is already 
 
        //upload files
              var upload = storageRef.put(this.files[i]);
@@ -633,6 +641,7 @@ this.$uploadFile.addEventListener("click",  () =>{
          console.log("HI,storage");
          storageRef.getDownloadURL().then((url)=>{
              console.log(url);
+            
              const images=document.createElement("img"); 
              const imagePosted=document.createElement("img");
              // Set the width and height properties for both images
@@ -659,8 +668,9 @@ this.$postOnFeedImageDiv.style.backgroundRepeat="no-repeat";
           // 'file' comes from the Blob or File API
 storageRef.put(this.files).then((snapshot) => {
   console.log('Uploaded  file!');
+  (this.files).push(this.files[i].name);
   this.finalizePostAfterLoadingFiles();
-   
+ 
 });
 
      })
@@ -773,8 +783,8 @@ desertRef.delete().then(() => {
     }
 }
 editPost(){
-this.finalizePostAfterLoadingFiles()
-
+this.openCreatPost()
+this.$PostMenuModalForm.style.visibility= "hidden";
 }
 //edit post function
 closeModal(){
