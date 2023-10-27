@@ -26,6 +26,8 @@ position: fixed;
   height:689.1px;
   border-right: 1px solid black;
 }
+
+.logo2{display: none;}
 /* display div */
 .modal{
   background-size: contain;
@@ -519,4 +521,60 @@ color: #2978ab;
 }
 .account-bar{
   margin-top: 4px;
+}
+
+@media (max-width: 767px) {
+  body{
+display:block ;
+
+ }
+ .section{
+  width: 100%;
+  background:paleturquoise ;
+ 
+}
+
+  }
+  @media screen and  (max-width: 1159px) {
+    /* Your tablet-specific styles go here */
+    .right-nav{
+display: none;
+
+    }
+    .section{
+      width: 100%;
+  
+    }
+.box2{
+  max-width: 100%;
+}
+
+   
+  .box1{
+    width: 10%;
+      
+      
+    }
+    .left-nav .ul-p1{
+      display: none;
+
+    }
+    .ul-p1{width: 5px;}
+    .logo1{
+      display: none; 
+    }
+    .logo2{
+      display: block;
+      position: relative;
+      left: 20px;
+
+    }
+    .sidebar-item:hover{
+      pointer-events: none;
+    }
+   .left-nav{
+    position: relative;
+    right:15px;
+   
+   }
 }

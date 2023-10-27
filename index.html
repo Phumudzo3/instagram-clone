@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,16 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
+        type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
-    <script type="module" src="app.js" ></script>
+    <script type="module" src="app.js"></script>
 </head>
+
 <body>
     <div id="firebaseui-auth-container"></div>
     <div id="app">
@@ -25,33 +28,35 @@
                 <div class="Creat-post">
                     <span class="material-icons close-model">
                         close
+                    </span>
+                    <div class="add-media">
+                        <span class="post">Create new post</span>
+                        <hr>
+                        <span class="material-icons media-id">
+                            collections
                         </span>
-<div class="add-media">
-    <span class="post">Create new post</span>
-<hr>
-    <span class="material-icons media-id">
-        collections
-    </span>
-        <span class="media-id first-font">Drag photos and videos here</span>
-      <span class="media-id"><input type="file" id="files" multiple/></span> 
-      <span class="media-id"><button id="send">Upload</button></span>
-        
-       <span class="media-id"><p id="uploading"></p></span> 
-        <progress value="0" max="100" id="progress"></progress>
-</div>
-</div>
+                        <span class="media-id first-font">Drag photos and videos here</span>
+                        <span class="media-id"><input type="file" id="files" multiple /></span>
+                        <span class="media-id"><button id="send">Upload</button></span>
 
-<div class="finalize-post">
-    <button class="post-btn diplayPostOnFeeds">Post</button>
-   <div class="">
-    <input type ="text" placeholder="add caption" class="file-caption" id="text-value" />
-   </div>
-   <div class="picture-container">
-</div>
-    </div>
-</div>
+                        <span class="media-id">
+                            <p id="uploading"></p>
+                        </span>
+                        <progress value="0" max="100" id="progress"></progress>
+                    </div>
+                </div>
+
+                <div class="finalize-post">
+                    <button class="post-btn diplayPostOnFeeds">Post</button>
+                    <div class="">
+                        <input type="text" placeholder="add caption" class="file-caption" id="text-value" />
+                    </div>
+                    <div class="picture-container">
+                    </div>
+                </div>
             </div>
-       
+        </div>
+
         <div class="modal-1 post-Menu">
             <div class="modal-content-1">
                 <div class="post-menu">
@@ -61,479 +66,498 @@
                     <button class="btn-menu"><span>Go to post</span></button>
                     <button class="btn-menu"><span>Share to...</span> </button>
                     <button class="btn-menu"><span>Copy link</span> </button>
-                    <button class="btn-menu ">   <span>Embed</span> </button>
+                    <button class="btn-menu "> <span>Embed</span> </button>
                     <button class="btn-menu off-btn"> <span class="cancel post-menu-exit">Cancel</span> </button>
-        
-                 </div>
-        </div>
-        </div>
-        <div class="left-sidebar box1">
-            <span class="logo"><img src="https://www.vectorlogo.zone/logos/instagram/instagram-wordmark.svg" width="100px" height="50px"></span>
-            <div class="left-nav">
-        <div class="sidebar-item active">
-                    <span class="material-icons  ">
-                       home
-                       </span> 
-                   <span class="ul-p1">Home</span>
-               </div>
-               <div class="sidebar-item">
-                   <span class="material-icons ">
-                       search
-                       </span> <span class="ul-p1">Search</span>
-               
-               </div>
-               <div class="sidebar-item">
-                   <span class="material-icons ">
-                       explore
-                       </span>
-                   <span class="ul-p1">Explore</span>
-                   
-               </div>
-               <div class="sidebar-item"><span class="material-icons ">
-                movie
-                 </span>
-             <span class="ul-p1">Reel</span>
-             </div>
-             <div class="sidebar-item">
-                <span class=" material-icons rotate-item">
-               send
-                 </span>
-             <span class="ul-p1">Messages</span>
-             </div>
-               <div class="sidebar-item">
-                <span class="material-icons">
-                    favorite_border
-                    </span>
-                   <span class="ul-p1">
-                      notifications
-                   </span>
-                   </div>
-               <div class="sidebar-item open-modal"><span class="material-icons ">
-                  add_box
-                   </span>
-               <span class="ul-p1 open-modal">Create</span>
-               </div>
-               <div class="sidebar-item"><span class="material-icons pro-pic ">
-                <img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="30" height="30"></span>
-                
-            <span class="ul-p1">Profile</span>
-            </div>
-           
-            <div class="sidebar-item menu clickedMenu  " ><span class="material-icons ">
-                menu
-                </span>
-            <span class="ul-p1">More</span>
-            </div>
-               <div class="profile-menu main-form" id="myForm" main-form> 
-                <div class="sidebar-item main-form "><span class="material-icons">
-                    settings
-                    </span>
-                <span class="ul-p1">settings</span>
-                </div>
-                <div class="sidebar-item main-form"><span class="material-icons">
-                    av_timer
-                    </span>
-                <span class="ul-p1">Your activity</span>
-                </div>
-                <div class="sidebar-item main-form"><span class="material-icons ">
-                    bookmarks
-                    </span>
-                <span class="ul-p1">Saved</span>
-                </div>
-                <div class="sidebar-item main-form"><span class="material-icons">
-                    keyboard_command_key
-                    </span>
-                <span class="ul-p1">Keyboard shortcuts</span>
-                </div>
-                <div class="sidebar-item main-form"><span class="material-icons">
-                    light_mode
-                    </span>
-                <span class="ul-p1">Switch apperance</span>
-                </div>
-                <div class="sidebar-item main-form"><span class="material-icons">
-                    report
-                    </span>
-                <span class="ul-p1">Report a problem</span>
-                </div>
-                <div class="sidebar-item main-form account-bar"> <span class="ul-p1">Switch accounts</span>
-               
-                </div>
-                <div class="sidebar-item main-form  account-bar  "><span class="align-logout ">Log out</span>
-                </span><p class="ul-p1 "></p>
-                
-                </div>
-                <div class="sidebar-item logout-btn clickLogOut "><span class="material-icons ">
-                    menu
-                    </span> 
-                <span class="ul-p1 ">More</span>
-                </div>
-                </div>
-               </div>
-               
-            </div>
-            
-        <div class="section">
-            <div class="main-menu box2">
-                <div class="nav">
-                    <div class="box2-profile">
-                        
-                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-                       
-                    <span class="ul-p1 auth-user"></span>
-                    </div>
-                    <div class="box2-profile">
-                        
-                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-                       
-                    <span class="ul-p1">Phumudzo</span>
-                    </div>
-                    <div class="box2-profile">
-                        
-                        <span  ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-                    <span class="ul-p1">Livhuwani</span>
-                    </div>
-                    <div class="box2-profile">
-                        
-                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-                       
-                    <span class="ul-p1">Rendani</span>
-                    </div>
-                    <div class="box2-profile">
-                        
-                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-                       
-                    <span class="ul-p1">Tendani</span>
-                    </div>
-                    <div class="box2-profile">
-                        
-                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-                       
-                    <span class="ul-p1">Mavhungu</span>
-                    </div>
-                    <div class="box2-profile">
-                        
-                        <span ><img src="asset/x.jpg" width="55" height="55"></span>
-                       
-                    <span class="ul-p1">Ompha</span>
-                    </div>
-                    <div class="box2-profile">
-                        
-                        <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
-                       
-                    <span class="ul-p1">Lufuno</span>
-                    </div>
-                    
-            
-                </div>
-                <div class="status">
-                    <div class="status-bar">
-                        <div class="status-bar1">
-                            <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="40" height="40"></span>
-                                <span class="auth-user"> . 19h</span>
-                                
-                        </div>
-                        <div class="status-bar2-2">
-                            <span class="material-icons ">
-                                more_horiz
-                                </span>
-                        </div>
-                       
-                            </div>
-                            <div class="photo">
-                               <img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px"> 
-                            </div>
-                            <div class="status-footer">
-                                <div class="status-footer-1">
-                                    <span class="material-icons">
-                                        favorite_border
-                                        </span>
-                                        <span class="material-icons">
-                                            mode_comment
-                                            </span>
-                                            <span class=" material-icons rotate-item">
-                                                send
-                                                  </span>
-                                        
-                                </div>
-                                <div class="status-footer-2">
-                                    <span class="material-icons">
-                                        bookmark
-                                        </span>
-                                        
-                                        
-                                </div>
-                                
-            
-                            </div>
-                            <div class="comment-section">
-                                <div class="rnav-bar1">
-                                    <span ><img src="asset/x.jpg" width="15" height="15"></span>
-                                        <div class="profile-name">
-                                            <span class="likes-comment">Liked by Shaun_ and others</span>
-                                        </div>
-                                        </div>
-         
-            <div class="user-details-capt">
-                
-                <b><span class="likes-comment status-com auth-user">  </span></b><span class="title-post">Love</span>
-              </div>
-            <div class="add-comment">
-                <span class="likes-comment">Add a comment...</span>
-                <span class="material-icons">
-                    sentiment_satisfied_alt
-                    </span>
-            </div>
-            
-                            </div>
-                            <br>
-            <hr>
-            
-                            </div>
-                            
-                           
-                            <br><br><br>  <br> 
-                            <div class="status status-box">
-                                <div class="status-bar">
-                                    <div class="status-bar1">
-                                        <span ><img src="asset/pexels-marta-dzedyshko-2377470.jpg" width="40" height="40"></span>
-                                            <span class="auth-user"> . 30h</span>
-                                            
-                                    </div>
-                                    <div class="status-bar2-2">
-                                        <span class="material-icons">
-                                            more_horiz
-                                            </span>
-                                    </div>
-                                   
-                                        </div>
-                                        <div class="photo">
-                                            <img src="asset/pexels-marta-dzedyshko-2377470.jpg" width="410px" height="500px">
-                                        </div>
-                                        <div class="status-footer">
-                                            <div class="status-footer-1">
-                                                <span class="material-icons">
-                                                    favorite_border
-                                                    </span>
-                                                    <span class="material-icons">
-                                                        mode_comment
-                                                        </span>
-                                                        <span class=" material-icons rotate-item">
-                                                            send
-                                                              </span>
-                                                    
-                                            </div>
-                                            <div class="status-footer-2">
-                                                <span class="material-icons">
-                                                    bookmark
-                                                    </span>
-                                                    
-                                                    
-                                            </div>
-                                            
-                        
-                                        </div>
-                                        <div class="comment-section">
-                                            <div class="rnav-bar1">
-                                                <span ><img src="asset/x.jpg" width="15" height="15"></span>
-                                                    <div class="profile-name">
-                                                        <span class="likes-comment">Liked by Shaun_ and others</span>
-                                                    </div>
-                                                    </div>
-                        
-                        <div class="user-details-capt">
-                         <b><span class="likes-comment status-com auth-user"> </span></b><span  class="title-post"> #flowers #nature #me</span> 
-                        </div>
-                        <div class="add-comment">
-                            <span class="likes-comment">Add a comment...</span>
-                            <span class="material-icons">
-                                sentiment_satisfied_alt
-                                </span>
-                        </div>
-                        
-                                        </div>
-                                        <br>
-            <hr>
-            <br>   
-                                        </div>
-                                        <br><br><br>  <br>   
-                                        <div class="status open-status">
-                                            <div class="status-bar">
-                                                <div class="status-bar1">
-                                                    <span ><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="40" height="40"></span>
-                                                        <span class="auth-user"> . 19h</span>
-                                                        
-                                                </div>
-                                                <div class="status-bar2-2">
-                                                    <span class="material-icons open-modal-post-menu">
-                                                        more_horiz
-                                                        </span>
-                                                </div>
-                                               
-                                                    </div>
-                                                    <div class="photo-uploading">
-                                                        <!--<img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">-->
-                                                    <div class="pic-posted">
-                                                        
-                                                    </div>
-                                                    </div>
-                                                    <div class="status-footer">
-                                                        <div class="status-footer-1">
-                                                            <span class="material-icons">
-                                                                favorite_border
-                                                                </span>
-                                                                <span class="material-icons">
-                                                                    mode_comment
-                                                                    </span>
-                                                                    <span class=" material-icons rotate-item">
-                                                                        send
-                                                                          </span>
-                                                                
-                                                        </div>
-                                                        <div class="status-footer-2">
-                                                            <span class="material-icons">
-                                                                bookmark
-                                                                </span>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment-section">
-                                                        <div class="rnav-bar1">
-                                                            <span ><img src="asset/x.jpg" width="15" height="15"></span>
-                                                                <div class="profile-name">
-                                                                    <span class="likes-comment">Liked by Shaun_ and others</span>
-                                                                </div>
-                                                                </div>
-                                                                <div class="user-details-capt">
-                                                                    <b><span class="likes-comment status-com auth-user "> </span></b><span id="title-posted"> </span>
-                                                                </div>
 
-                                   
-                                    
-                                    <div class="add-comment">
-                                        <span class="likes-comment">Add a comment...</span>
-                                        <span class="material-icons">
-                                            sentiment_satisfied_alt
-                                            </span>
-                                    </div>
-                                    
-                                                    </div>
-                                                    <br>
-                                    <hr>
-                                    
-                                                    </div>
-                                                    
-                                                    
+                </div>
+            </div>
+        </div>
+        <div class="all-container">
+
+            <div class="left-sidebar box1">
+
+
+                <span class="logo"><img class="logo1"
+                        src="https://www.vectorlogo.zone/logos/instagram/instagram-wordmark.svg" width="100px"
+                        height="50px">
+                    <img class="logo2"
+                        src="https://img.freepik.com/premium-vector/black-outline-social-media-logo_197792-2416.jpg"
+                        width="60px" height="50px" alt="">
+                </span>
+                <div class="left-nav">
+                    <div class="sidebar-item active">
+                        <span class="material-icons  ">
+                            home
+                        </span>
+                        <span class="ul-p1">Home</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <span class="material-icons ">
+                            search
+                        </span> <span class="ul-p1">Search</span>
+
+                    </div>
+                    <div class="sidebar-item">
+                        <span class="material-icons ">
+                            explore
+                        </span>
+                        <span class="ul-p1">Explore</span>
+
+                    </div>
+                    <div class="sidebar-item"><span class="material-icons ">
+                            movie
+                        </span>
+                        <span class="ul-p1">Reel</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <span class=" material-icons rotate-item">
+                            send
+                        </span>
+                        <span class="ul-p1">Messages</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <span class="material-icons">
+                            favorite_border
+                        </span>
+                        <span class="ul-p1">
+                            notifications
+                        </span>
+                    </div>
+                    <div class="sidebar-item open-modal"><span class="material-icons ">
+                            add_box
+                        </span>
+                        <span class="ul-p1 open-modal">Create</span>
+                    </div>
+                    <div class="sidebar-item"><span class="material-icons pro-pic ">
+                            <img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="30" height="30"></span>
+
+                        <span class="ul-p1">Profile</span>
+                    </div>
+
+                    <div class="sidebar-item menu clickedMenu  "><span class="material-icons ">
+                            menu
+                        </span>
+                        <span class="ul-p1">More</span>
+                    </div>
+                    <div class="profile-menu main-form" id="myForm" main-form>
+                        <div class="sidebar-item main-form "><span class="material-icons">
+                                settings
+                            </span>
+                            <span class="ul-p1">settings</span>
                         </div>
+                        <div class="sidebar-item main-form"><span class="material-icons">
+                                av_timer
+                            </span>
+                            <span class="ul-p1">Your activity</span>
+                        </div>
+                        <div class="sidebar-item main-form"><span class="material-icons ">
+                                bookmarks
+                            </span>
+                            <span class="ul-p1">Saved</span>
+                        </div>
+                        <div class="sidebar-item main-form"><span class="material-icons">
+                                keyboard_command_key
+                            </span>
+                            <span class="ul-p1">Keyboard shortcuts</span>
+                        </div>
+                        <div class="sidebar-item main-form"><span class="material-icons">
+                                light_mode
+                            </span>
+                            <span class="ul-p1">Switch apperance</span>
+                        </div>
+                        <div class="sidebar-item main-form"><span class="material-icons">
+                                report
+                            </span>
+                            <span class="ul-p1">Report a problem</span>
+                        </div>
+                        <div class="sidebar-item main-form account-bar"> <span class="ul-p1">Switch accounts</span>
+
+                        </div>
+                        <div class="sidebar-item main-form  account-bar  "><span class="align-logout ">Log out</span>
+                            </span>
+                            <p class="ul-p1 "></p>
+
+                        </div>
+                        <div class="sidebar-item logout-btn clickLogOut "><span class="material-icons ">
+                                menu
+                            </span>
+                            <span class="ul-p1 ">More</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <div class="main-menu box2">
+                    <div class="nav">
+                        <div class="box2-profile">
+
+                            <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+
+                            <span class="ul-p1 auth-user"></span>
+                        </div>
+                        <div class="box2-profile">
+
+                            <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+
+                            <span class="ul-p1">Phumudzo</span>
+                        </div>
+                        <div class="box2-profile">
+
+                            <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+                            <span class="ul-p1">Livhuwani</span>
+                        </div>
+                        <div class="box2-profile">
+
+                            <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+
+                            <span class="ul-p1">Rendani</span>
+                        </div>
+                        <div class="box2-profile">
+
+                            <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+
+                            <span class="ul-p1">Tendani</span>
+                        </div>
+                        <div class="box2-profile">
+
+                            <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+
+                            <span class="ul-p1">Mavhungu</span>
+                        </div>
+                        <div class="box2-profile">
+
+                            <span><img src="asset/x.jpg" width="55" height="55"></span>
+
+                            <span class="ul-p1">Ompha</span>
+                        </div>
+                        <div class="box2-profile">
+
+                            <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="55" height="55"></span>
+
+                            <span class="ul-p1">Lufuno</span>
+                        </div>
+
+
+                    </div>
+                    <div class="status">
+                        <div class="status-bar">
+                            <div class="status-bar1">
+                                <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="40"
+                                        height="40"></span>
+                                <span class="auth-user"> . 19h</span>
+
+                            </div>
+                            <div class="status-bar2-2">
+                                <span class="material-icons ">
+                                    more_horiz
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="photo">
+                            <img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">
+                        </div>
+                        <div class="status-footer">
+                            <div class="status-footer-1">
+                                <span class="material-icons">
+                                    favorite_border
+                                </span>
+                                <span class="material-icons">
+                                    mode_comment
+                                </span>
+                                <span class=" material-icons rotate-item">
+                                    send
+                                </span>
+
+                            </div>
+                            <div class="status-footer-2">
+                                <span class="material-icons">
+                                    bookmark
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="comment-section">
+                            <div class="rnav-bar1">
+                                <span><img src="asset/x.jpg" width="15" height="15"></span>
+                                <div class="profile-name">
+                                    <span class="likes-comment">Liked by Shaun_ and others</span>
+                                </div>
+                            </div>
+
+                            <div class="user-details-capt">
+
+                                <b><span class="likes-comment status-com auth-user"> </span></b><span
+                                    class="title-post">Love</span>
+                            </div>
+                            <div class="add-comment">
+                                <span class="likes-comment">Add a comment...</span>
+                                <span class="material-icons">
+                                    sentiment_satisfied_alt
+                                </span>
+                            </div>
+
+                        </div>
+                        <br>
+                        <hr>
+
+                    </div>
+
+
+                    <br><br><br> <br>
+                    <div class="status status-box">
+                        <div class="status-bar">
+                            <div class="status-bar1">
+                                <span><img src="asset/pexels-marta-dzedyshko-2377470.jpg" width="40" height="40"></span>
+                                <span class="auth-user"> . 30h</span>
+
+                            </div>
+                            <div class="status-bar2-2">
+                                <span class="material-icons">
+                                    more_horiz
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="photo">
+                            <img src="asset/pexels-marta-dzedyshko-2377470.jpg" width="410px" height="500px">
+                        </div>
+                        <div class="status-footer">
+                            <div class="status-footer-1">
+                                <span class="material-icons">
+                                    favorite_border
+                                </span>
+                                <span class="material-icons">
+                                    mode_comment
+                                </span>
+                                <span class=" material-icons rotate-item">
+                                    send
+                                </span>
+
+                            </div>
+                            <div class="status-footer-2">
+                                <span class="material-icons">
+                                    bookmark
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="comment-section">
+                            <div class="rnav-bar1">
+                                <span><img src="asset/x.jpg" width="15" height="15"></span>
+                                <div class="profile-name">
+                                    <span class="likes-comment">Liked by Shaun_ and others</span>
+                                </div>
+                            </div>
+
+                            <div class="user-details-capt">
+                                <b><span class="likes-comment status-com auth-user"> </span></b><span
+                                    class="title-post"> #flowers #nature #me</span>
+                            </div>
+                            <div class="add-comment">
+                                <span class="likes-comment">Add a comment...</span>
+                                <span class="material-icons">
+                                    sentiment_satisfied_alt
+                                </span>
+                            </div>
+
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                    </div>
+                    <br><br><br> <br>
+                    <div class="status open-status">
+                        <div class="status-bar">
+                            <div class="status-bar1">
+                                <span><img src="asset/pexels-yiğit-melih-berber-14805059.jpg" width="40"
+                                        height="40"></span>
+                                <span class="auth-user"> . 19h</span>
+
+                            </div>
+                            <div class="status-bar2-2">
+                                <span class="material-icons open-modal-post-menu">
+                                    more_horiz
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="photo-uploading">
+                            <!--<img src="asset/pexels-erik-mclean-9661427.jpg" width="410px" height="500px">-->
+                            <div class="pic-posted">
+
+                            </div>
+                        </div>
+                        <div class="status-footer">
+                            <div class="status-footer-1">
+                                <span class="material-icons">
+                                    favorite_border
+                                </span>
+                                <span class="material-icons">
+                                    mode_comment
+                                </span>
+                                <span class=" material-icons rotate-item">
+                                    send
+                                </span>
+
+                            </div>
+                            <div class="status-footer-2">
+                                <span class="material-icons">
+                                    bookmark
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="comment-section">
+                            <div class="rnav-bar1">
+                                <span><img src="asset/x.jpg" width="15" height="15"></span>
+                                <div class="profile-name">
+                                    <span class="likes-comment">Liked by Shaun_ and others</span>
+                                </div>
+                            </div>
+                            <div class="user-details-capt">
+                                <b><span class="likes-comment status-com auth-user "> </span></b><span
+                                    id="title-posted"> </span>
+                            </div>
+
+
+
+                            <div class="add-comment">
+                                <span class="likes-comment">Add a comment...</span>
+                                <span class="material-icons">
+                                    sentiment_satisfied_alt
+                                </span>
+                            </div>
+
+                        </div>
+                        <br>
+                        <hr>
+
+                    </div>
+
+
+                </div>
                 <div class="right-nav box3">
-                <div class="status-bar-rnav p1">
-               
-                    <div class="rnav-bar1">
-                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                    <div class="status-bar-rnav p1">
+
+                        <div class="rnav-bar1">
+                            <span><img src="asset/x.jpg" width="40" height="40"></span>
                             <div class="profile-name">
                                 <span>username:</span>
                                 <span class="auth-user"></span>
                             </div>
-                            </div>  
-                    <div class="status-bar2">
-                      <p class="logout">Log out</p>
+                        </div>
+                        <div class="status-bar2">
+                            <p class="logout">Log out</p>
+                        </div>
                     </div>
-                 </div>
-            
-            <br><br>
-                 <div class="status-bar-rnav">
-                    <div class="rnav-bar1-r1">
-                        <p>Suggested for you</p>
-                            </div>
-                    <div class="status-bar2">
-                      <h5>See All</h5>
+
+                    <br><br>
+                    <div class="status-bar-rnav">
+                        <div class="rnav-bar1-r1">
+                            <p>Suggested for you</p>
+                        </div>
+                        <div class="status-bar2">
+                            <h5>See All</h5>
+                        </div>
                     </div>
-                 </div>
-            
-                 <div class="status-bar-rnavrnav-bar1-r1">
-                    <div class="rnav-bar1">
-                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+
+                    <div class="status-bar-rnavrnav-bar1-r1">
+                        <div class="rnav-bar1">
+                            <span><img src="asset/x.jpg" width="40" height="40"></span>
                             <div class="profile-name">
                                 <span>Blue</span>
                                 <span class="text-suggested">New to Instagram</span>
                             </div>
-                            </div>
-                    <div class="status-bar2">
-                        <p>Follow</p>
+                        </div>
+                        <div class="status-bar2">
+                            <p>Follow</p>
+                        </div>
                     </div>
-                 </div>
-                 <div class="status-bar-rnavrnav-bar1-r1">
-                    <div class="rnav-bar1">
-                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                    <div class="status-bar-rnavrnav-bar1-r1">
+                        <div class="rnav-bar1">
+                            <span><img src="asset/x.jpg" width="40" height="40"></span>
                             <div class="profile-name">
                                 <span>John_Sky</span>
                                 <span class="text-suggested">Suggested for you</span>
                             </div>
-                            </div>
-                    <div class="status-bar2">
-                        <p>Follow</p>
+                        </div>
+                        <div class="status-bar2">
+                            <p>Follow</p>
+                        </div>
                     </div>
-                 </div>
-                 <div class="status-bar-rnavrnav-bar1-r1">
-                    <div class="rnav-bar1">
-                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                    <div class="status-bar-rnavrnav-bar1-r1">
+                        <div class="rnav-bar1">
+                            <span><img src="asset/x.jpg" width="40" height="40"></span>
                             <div class="profile-name">
                                 <span>Fortune_king</span>
                                 <span>New to Instagram</span>
                             </div>
-                            </div>
-                    <div class="status-bar2">
-                        <p>Follow</p>
+                        </div>
+                        <div class="status-bar2">
+                            <p>Follow</p>
+                        </div>
                     </div>
-                 </div>
-                 <div class="status-bar-rnavrnav-bar1-r1">
-                    <div class="rnav-bar1">
-                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                    <div class="status-bar-rnavrnav-bar1-r1">
+                        <div class="rnav-bar1">
+                            <span><img src="asset/x.jpg" width="40" height="40"></span>
                             <div class="profile-name">
                                 <span>Grey_hoper</span>
                                 <span class="text-suggested">Followed by Mash + 2...</span>
                             </div>
-                            </div>
-                    <div class="status-bar2">
-                        <p>Follow</p>
+                        </div>
+                        <div class="status-bar2">
+                            <p>Follow</p>
+                        </div>
                     </div>
-                 </div>
-                 <div class="status-bar-rnavrnav-bar1-r1">
-                    <div class="rnav-bar1">
-                        <span ><img src="asset/x.jpg" width="40" height="40"></span>
+                    <div class="status-bar-rnavrnav-bar1-r1">
+                        <div class="rnav-bar1">
+                            <span><img src="asset/x.jpg" width="40" height="40"></span>
                             <div class="profile-name">
                                 <span>BlackJ</span>
                                 <span class="text-suggested">Suggested for you</span>
                             </div>
-                            </div>
-                    <div class="status-bar2">
-                      <p>Follow</p>
+                        </div>
+                        <div class="status-bar2">
+                            <p>Follow</p>
+                        </div>
                     </div>
-                 </div>
-            <div class="footer">
-                <div class="div">
-                    <ul>
-                        <span> About</span>
-                        <span>. Help</span>
-                        <span>. Press</span>
-                        <span>. API</span>
-                        <span>. Jobs</span>
-                        <span>. Privacy</span>
-                        <span>. Terms</span>
-                        <span>. Locations</span>
-                        <span>. Language</span>
-                        <span>. Meta Verified</span>
-                </ul>
+                    <div class="footer">
+                        <div class="div">
+                            <ul>
+                                <span> About</span>
+                                <span>. Help</span>
+                                <span>. Press</span>
+                                <span>. API</span>
+                                <span>. Jobs</span>
+                                <span>. Privacy</span>
+                                <span>. Terms</span>
+                                <span>. Locations</span>
+                                <span>. Language</span>
+                                <span>. Meta Verified</span>
+                            </ul>
+                        </div>
+                        <p>INSTAGRAM clone </p>
+                    </div>
                 </div>
-               <p>INSTAGRAM clone </p>
-            </div>
             </div>
         </div>
-    
+
+
     </div>
-        
+
 
 
 
 
 </body>
+
 </html>
